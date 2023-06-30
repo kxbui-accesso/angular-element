@@ -8,8 +8,7 @@ import { createCustomElement } from '@angular/elements';
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, AppRoutingModule],
-  providers: [],
-  // bootstrap: [AppComponent]
+  providers: []
 })
 export class AppModule {
   constructor(private injector: Injector) {}
