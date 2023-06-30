@@ -27,7 +27,8 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "projects/angular-element-app/src/favicon.ico",
-              "projects/angular-element-app/src/assets"
+              "projects/angular-element-app/src/assets",
+              "projects/angular-element-app/src/example.html"
             ],
             "styles": [
               "projects/angular-element-app/src/styles.scss"
