@@ -11,7 +11,10 @@ import { Page2Component } from './page2.component';
   ],
   imports: [
     CommonModule,
-    Page2RoutingModule
+    // Page2RoutingModule
+  ],
+  exports: [
+    Page2Component
   ]
 })
 export class Page2Module { }

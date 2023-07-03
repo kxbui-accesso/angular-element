@@ -28,7 +28,12 @@
             "assets": [
               "projects/angular-element-app/src/favicon.ico",
               "projects/angular-element-app/src/assets",
-              "projects/angular-element-app/src/example.html"
+              "projects/angular-element-app/src/example.html",
+              {
+                "glob": "**/*",
+                "input": "dist/angular-element-app",
+                "output": "angular-element-app/"
+              }
             ],
             "styles": [
               "projects/angular-element-app/src/styles.scss"
@@ -130,6 +135,98 @@
               "zone.js",
               "zone.js/testing"
             ]
+          }
+        }
+      }
+    },
+    "angular-element-demo": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/angular-element-demo",
+      "sourceRoot": "projects/angular-element-demo/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/angular-element-demo",
+            "index": "projects/angular-element-demo/src/index.html",
+            "main": "projects/angular-element-demo/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/angular-element-demo/tsconfig.app.json",
+            "assets": [
+              "projects/angular-element-demo/src/favicon.ico",
+              "projects/angular-element-demo/src/assets",
+              "projects/angular-element-demo/src/example.html"
+            ],
+            "styles": [
+              "projects/angular-element-demo/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "angular-element-demo:build:production"
+            },
+            "development": {
+              "browserTarget": "angular-element-demo:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "angular-element-demo:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/angular-element-demo/tsconfig.spec.json",
+            "assets": [
+              "projects/angular-element-demo/src/favicon.ico",
+              "projects/angular-element-demo/src/assets"
+            ],
+            "styles": [
+              "projects/angular-element-demo/src/styles.css"
+            ],
+            "scripts": []
           }
         }
       }

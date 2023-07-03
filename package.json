@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "ng serve angular-element-demo --port 4200 | ng serve angular-element-app --port 4201",
+    "build": "npm run build:elements",
+    "build:elements": "ng build angular-element-app --configuration production --output-hashing none && node build.js",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -28,6 +29,8 @@
     "@angular/cli": "~15.2.9",
     "@angular/compiler-cli": "^15.2.0",
     "@types/jasmine": "~4.3.0",
+    "concat": "^1.0.3",
+    "fs-extra": "^11.1.1",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",

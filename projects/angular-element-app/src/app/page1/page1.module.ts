@@ -14,6 +14,7 @@ import { LibComponentModule } from 'angular-element-lib';
     CommonModule,
     LibComponentModule,
     Page1RoutingModule
-  ]
+  ],
+  // exports: [Page1Component]
 })
 export class Page1Module { }
