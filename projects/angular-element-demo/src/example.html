@@ -1,17 +1,28 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>AngularElementDemo</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <angular-element-app></angular-element-app>
-  <script>
-    window.resourceBaseUrl = 'http://localhost:4201';
-  </script>
-  <script src="http://localhost:4201/angular-element-app/angular-element-app.bundle.js"></script>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>AngularElementDemo</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  </head>
+  <body>
+    <div id="element">
+      <script>
+        // add script
+        window.resourceBaseUrl = "http://localhost:4201";
+        var elScript = document.createElement("script");
+        elScript.setAttribute(
+          "src",
+          "http://localhost:4201/angular-element-app/angular-element-app.bundle.js"
+        );
+        document.getElementById("element").appendChild(elScript);
+  
+        // add element
+        const node = document.createElement("angular-element-app");
+        document.getElementById("element").appendChild(node);
+      </script>
+    </div>
+  </body>
 </html>

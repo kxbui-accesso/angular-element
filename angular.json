@@ -35,9 +35,7 @@
                 "output": "angular-element-app/"
               }
             ],
-            "styles": [
-              "projects/angular-element-app/src/styles.scss"
-            ],
+            "styles": [],
             "scripts": []
           },
           "configurations": {
