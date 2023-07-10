@@ -14,5 +14,6 @@
   >Page 2</a
 >
 <h1>App component</h1>
-
+<div *ngIf="display">Child: Received</div>
+<button (click)="onClick()">child-parent</button>
 <router-outlet></router-outlet>

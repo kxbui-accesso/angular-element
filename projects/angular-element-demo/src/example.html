@@ -8,6 +8,9 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
   </head>
   <body>
+    <div id="parentDiv" style="display: none">Parent: received</div>
+    <button id="parentBtn">parent-child</button>
+    <button id="removeBtn">remove child</button>
     <div id="element">
       <script>
         // add script
@@ -18,10 +21,33 @@
           "http://localhost:4201/angular-element-app/angular-element-app.bundle.js"
         );
         document.getElementById("element").appendChild(elScript);
-  
+
         // add element
-        const node = document.createElement("angular-element-app");
-        document.getElementById("element").appendChild(node);
+        const el = document.createElement("angular-element-app");
+        el.style.display = "block";
+        el.style.borderStyle = "solid";
+        el.style.borderColor = "black";
+        document.getElementById("element").appendChild(el);
+      </script>
+      <script>
+        // listen to web component
+        const element = document.getElementsByTagName("angular-element-app")[0];
+        element.addEventListener("toParent", () => {
+          const parentDiv = document.getElementById("parentDiv");
+          parentDiv.style.display = "block";
+        });
+
+        // call web component api
+        const parentBtn = document.getElementById("parentBtn");
+        parentBtn.addEventListener("click", () => {
+          element.setDisplay();
+        });
+
+        // remove web component
+        const removeBtn = document.getElementById("removeBtn");
+        removeBtn.addEventListener("click", () => {
+          element.remove();
+        });
       </script>
     </div>
   </body>

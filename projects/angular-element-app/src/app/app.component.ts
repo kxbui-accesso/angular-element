@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,7 +8,23 @@ import { Router } from '@angular/router';
   encapsulation: ViewEncapsulation.ShadowDom
 })
 export class AppComponent {
-  constructor(private router: Router) {
+
+  @Input()
+  set setDisplay(value: any) {
+    this.display = true;
+  }
+
+  @Output()
+  toParent = new EventEmitter()
+
+  display = false;
+
+  constructor(private router: Router, private elementRef: ElementRef) {
+    (elementRef.nativeElement as any).setDisplay = this.setDisplay
     this.router.navigate(['/'], { skipLocationChange: true });
+  }
+
+  onClick() {
+    this.toParent.emit('hey');
   }
 }
