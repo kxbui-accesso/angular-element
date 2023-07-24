@@ -46,7 +46,10 @@
         // remove web component
         const removeBtn = document.getElementById("removeBtn");
         removeBtn.addEventListener("click", () => {
-          element.remove();
+          const el = document.getElementById("element");
+          while (el.hasChildNodes()) {
+            el.removeChild(el.lastChild);
+          }
         });
       </script>
     </div>
